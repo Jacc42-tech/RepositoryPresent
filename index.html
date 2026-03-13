@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>José Abraham Cruz Carmona | Executive Infrastructure & Cloud Leader</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#08111f;
+      --bg2:#0d1830;
+      --card:rgba(255,255,255,.05);
+      --line:rgba(255,255,255,.10);
+      --text:#eef4ff;
+      --muted:#aab7cf;
+      --primary:#2563eb;
+      --primary2:#06b6d4;
+      --accent:#22c55e;
+      --white:#ffffff;
+      --shadow:0 20px 60px rgba(0,0,0,.28);
+      --radius:26px;
+      --max:1180px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:'Inter',Arial,sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at 10% 10%, rgba(37,99,235,.18), transparent 22%),
+        radial-gradient(circle at 90% 10%, rgba(6,182,212,.14), transparent 18%),
+        linear-gradient(180deg, #07101c 0%, #0b1426 100%);
+      line-height:1.6;
+    }
+    a{text-decoration:none;color:inherit}
+    img{max-width:100%;display:block}
+    .container{width:min(var(--max),92%);margin:auto}
+    .topbar{
+      position:sticky;top:0;z-index:999;background:rgba(8,17,31,.75);
+      backdrop-filter:blur(14px);border-bottom:1px solid var(--line)
+    }
+    .nav{display:flex;justify-content:space-between;align-items:center;gap:18px;padding:16px 0}
+    .brand{font-weight:800;letter-spacing:.02em}
+    .brand small{display:block;color:var(--muted);font-size:.78rem;font-weight:600}
+    .nav-links{display:flex;gap:18px;flex-wrap:wrap;align-items:center}
+    .nav-links a{color:var(--muted);font-weight:600}
+    .nav-links a:hover{color:#fff}
+    .lang-toggle{display:flex;gap:8px}
+    .lang-btn{
+      background:rgba(255,255,255,.04);border:1px solid var(--line);color:var(--text);
+      border-radius:12px;padding:8px 12px;font-weight:700;cursor:pointer
+    }
+    .lang-btn.active{background:linear-gradient(135deg,var(--primary),var(--primary2));border-color:transparent}
+
+    .hero{padding:74px 0 44px}
+    .hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:30px;align-items:center}
+    .eyebrow{
+      display:inline-flex;align-items:center;gap:10px;padding:8px 14px;border-radius:999px;
+      background:rgba(255,255,255,.05);border:1px solid var(--line);font-weight:700;font-size:.9rem;margin-bottom:18px
+    }
+    .eyebrow::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--accent);box-shadow:0 0 18px var(--accent)}
+    h1{font-size:clamp(2.7rem,5vw,4.9rem);line-height:1.02;letter-spacing:-.04em;margin-bottom:16px}
+    .hero p{color:var(--muted);font-size:1.08rem;max-width:720px;margin-bottom:28px}
+    .cta-row{display:flex;gap:14px;flex-wrap:wrap}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 22px;
+      border-radius:14px;font-weight:800;border:1px solid transparent;transition:.2s ease
+    }
+    .btn-primary{background:linear-gradient(135deg,var(--primary),var(--primary2));box-shadow:0 16px 38px rgba(37,99,235,.28)}
+    .btn-secondary{background:rgba(255,255,255,.04);border-color:var(--line)}
+    .btn:hover{transform:translateY(-2px)}
+    .hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:24px}
+    .stat{background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:18px;padding:16px 18px}
+    .stat strong{display:block;font-size:1.35rem}
+    .stat span{color:var(--muted);font-size:.92rem}
+
+    .profile-card{
+      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border:1px solid var(--line);border-radius:30px;padding:26px;box-shadow:var(--shadow)
+    }
+    .profile-top{display:grid;grid-template-columns:140px 1fr;gap:20px;align-items:center;margin-bottom:20px}
+    .photo-wrap{
+      width:140px;height:180px;border-radius:26px;overflow:hidden;border:1px solid var(--line);
+      background:rgba(255,255,255,.05);box-shadow:var(--shadow)
+    }
+    .photo-wrap img{width:100%;height:100%;object-fit:cover}
+    .profile-title h2{font-size:1.5rem;line-height:1.08;margin-bottom:8px}
+    .profile-title p{color:var(--muted);margin-bottom:12px}
+    .badge-row{display:flex;flex-wrap:wrap;gap:10px}
+    .badge{padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.05);border:1px solid var(--line);font-weight:700;font-size:.82rem}
+    .mini-list{display:grid;gap:10px;margin-top:12px}
+    .mini-item{padding:14px 15px;border-radius:16px;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.06)}
+    .mini-item strong{display:block;font-size:.95rem;margin-bottom:4px}
+    .mini-item span{color:var(--muted);font-size:.93rem}
+
+    section{padding:82px 0}
+    .section-head{max-width:820px;margin:0 auto 40px;text-align:center}
+    .tag{display:inline-block;padding:7px 13px;border-radius:999px;background:rgba(255,255,255,.05);border:1px solid var(--line);font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:14px}
+    .section-head h2{font-size:clamp(2rem,3.2vw,3rem);line-height:1.08;margin-bottom:12px}
+    .section-head p{color:var(--muted)}
+    .grid{display:grid;gap:20px}
+    .highlights{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+    .timeline{max-width:1020px;margin:auto}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,.055), rgba(255,255,255,.03));border:1px solid var(--line);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow)}
+    .icon{width:52px;height:52px;border-radius:16px;background:linear-gradient(135deg, rgba(37,99,235,.26), rgba(6,182,212,.16));display:grid;place-items:center;font-weight:800;margin-bottom:14px}
+    .card h3{margin-bottom:10px;font-size:1.14rem}
+    .card p,.card li{color:var(--muted)}
+
+    .results-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:10px}
+    .result{padding:18px;border-radius:20px;background:rgba(255,255,255,.04);border:1px solid var(--line);text-align:left}
+    .result strong{display:block;font-size:1.55rem;line-height:1;margin-bottom:8px}
+    .result span{color:var(--muted);font-size:.92rem}
+
+    .achievement-wrap{display:grid;grid-template-columns:1.08fr .92fr;gap:22px}
+    .quote{font-size:1.08rem;color:#dbe8ff}
+    .metric-list{display:grid;gap:12px;margin-top:18px}
+    .metric{padding:14px 16px;border-radius:16px;background:rgba(255,255,255,.035);border:1px solid var(--line)}
+    .metric strong{display:block;font-size:1.08rem;color:#fff}
+    .resource-card a.inline-link{color:#8fd7ff;font-weight:700}
+
+    .timeline-item{display:grid;grid-template-columns:170px 1fr;gap:22px;align-items:start}
+    .timeline-item + .timeline-item{margin-top:18px}
+    .time{padding-top:6px;color:#d8e7ff;font-weight:800}
+    .detail ul{padding-left:18px;margin-top:10px}
+
+    .chip-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
+    .chip{padding:13px 14px;border-radius:14px;background:rgba(255,255,255,.04);border:1px solid var(--line);font-weight:700}
+
+    .contact-box{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+    .contact-list p{margin-bottom:10px;color:var(--muted)}
+    .footer{padding:28px 0 40px;border-top:1px solid var(--line);text-align:center;color:var(--muted)}
+
+    [data-lang="en"]{display:none}
+    body.lang-en [data-lang="es"]{display:none}
+    body.lang-en [data-lang="en"]{display:initial}
+    body.lang-en div[data-lang="en"], body.lang-en p[data-lang="en"], body.lang-en h1[data-lang="en"], body.lang-en h2[data-lang="en"], body.lang-en h3[data-lang="en"], body.lang-en span[data-lang="en"], body.lang-en a[data-lang="en"], body.lang-en small[data-lang="en"]{display:block}
+    body.lang-en .btn[data-lang="en"], body.lang-en .eyebrow[data-lang="en"], body.lang-en .tag[data-lang="en"], body.lang-en .badge[data-lang="en"]{display:inline-flex}
+    body.lang-en .lang-btn.en{background:linear-gradient(135deg,var(--primary),var(--primary2));border-color:transparent}
+    body.lang-en .lang-btn.es{background:rgba(255,255,255,.04);border-color:var(--line)}
+
+    @media (max-width: 980px){
+      .hero-grid,.achievement-wrap,.contact-box{grid-template-columns:1fr}
+      .hero-stats,.results-grid{grid-template-columns:1fr 1fr}
+    }
+    @media (max-width: 760px){
+      .nav{align-items:flex-start;flex-direction:column}
+      .hero{padding:50px 0 28px}
+      .hero-stats,.results-grid{grid-template-columns:1fr}
+      .profile-top,.timeline-item{grid-template-columns:1fr}
+      .photo-wrap{width:100%;max-width:220px;height:280px}
+      section{padding:64px 0}
+      h1{font-size:2.65rem}
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="container nav">
+      <div class="brand">
+        José Abraham Cruz Carmona
+        <small data-lang="es">IT Infrastructure & Cloud Strategy Manager</small>
+        <small data-lang="en">Executive Infrastructure & Cloud Leader</small>
+      </div>
+      <div class="nav-links">
+        <a href="#perfil"><span data-lang="es">Perfil</span><span data-lang="en">Profile</span></a>
+        <a href="#logros"><span data-lang="es">Logros</span><span data-lang="en">Achievements</span></a>
+        <a href="#experiencia"><span data-lang="es">Experiencia</span><span data-lang="en">Experience</span></a>
+        <a href="#capacidades"><span data-lang="es">Capacidades</span><span data-lang="en">Capabilities</span></a>
+        <a href="#contacto"><span data-lang="es">Contacto</span><span data-lang="en">Contact</span></a>
+        <div class="lang-toggle">
+          <button class="lang-btn es active" onclick="setLanguage('es')">ES</button>
+          <button class="lang-btn en" onclick="setLanguage('en')">EN</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <header class="hero" id="inicio">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow" data-lang="es">Disponible para posiciones estratégicas</div>
+        <div class="eyebrow" data-lang="en">Open to strategic leadership opportunities</div>
+
+        <h1 data-lang="es">Liderazgo en infraestructura híbrida y multicloud con impacto medible en costo, resiliencia y continuidad operativa.</h1>
+        <h1 data-lang="en">Hybrid and multicloud infrastructure leadership with measurable impact on cost, resilience, and business continuity.</h1>
+
+        <p data-lang="es">Ejecutivo de Infraestructura y Operaciones TI con más de 20 años de experiencia en entornos empresariales y financieros. Especializado en transformación híbrida y multicloud, optimización presupuestal, liderazgo técnico y modernización de plataformas críticas.</p>
+        <p data-lang="en">Infrastructure and IT Operations executive with 20+ years of experience across enterprise and financial environments. Specialized in hybrid and multicloud transformation, budget optimization, technical leadership, and modernization of mission-critical platforms.</p>
+
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#contacto"><span data-lang="es">Contactar</span><span data-lang="en">Get in touch</span></a>
+          <a class="btn btn-secondary" href="https://linkedin.com/in/jose-abraham-cruz-carmona-73277020" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat"><strong>20+ años</strong><span data-lang="es">Trayectoria en TI empresarial</span><span data-lang="en">Years in enterprise IT</span></div>
+          <div class="stat"><strong>350+</strong><span data-lang="es">Servidores en migraciones críticas</span><span data-lang="en">Servers in critical migrations</span></div>
+          <div class="stat"><strong>MXN $1.2M</strong><span data-lang="es">Ahorro mensual estimado</span><span data-lang="en">Estimated monthly savings</span></div>
+        </div>
+      </div>
+
+      <div class="profile-card">
+        <div class="profile-top">
+          <div class="photo-wrap">
+            <img src="fotojaccLinkedlin01.jpg" alt="José Abraham Cruz Carmona" />
+          </div>
+          <div class="profile-title">
+            <h2>José Abraham Cruz Carmona</h2>
+            <p data-lang="es">Puebla, México · Remoto / Híbrido</p>
+            <p data-lang="en">Puebla, Mexico · Remote / Hybrid</p>
+            <div class="badge-row">
+              <span class="badge" data-lang="es">Infraestructura híbrida</span>
+              <span class="badge" data-lang="en">Hybrid infrastructure</span>
+              <span class="badge" data-lang="es">Cloud strategy</span>
+              <span class="badge" data-lang="en">Cloud strategy</span>
+              <span class="badge" data-lang="es">Optimización de costos</span>
+              <span class="badge" data-lang="en">Cost optimization</span>
+            </div>
+          </div>
+        </div>
+        <div class="mini-list">
+          <div class="mini-item">
+            <strong data-lang="es">Especialidad</strong>
+            <strong data-lang="en">Specialization</strong>
+            <span data-lang="es">Cloud strategy, infraestructura híbrida, continuidad operativa y optimización de costos.</span>
+            <span data-lang="en">Cloud strategy, hybrid infrastructure, business continuity, and cost optimization.</span>
+          </div>
+          <div class="mini-item">
+            <strong data-lang="es">Sectores</strong>
+            <strong data-lang="en">Industries</strong>
+            <span data-lang="es">Servicios financieros, operación empresarial e infraestructura multinacional.</span>
+            <span data-lang="en">Financial services, enterprise operations, and multinational infrastructure environments.</span>
+          </div>
+          <div class="mini-item">
+            <strong data-lang="es">Formación y certificación</strong>
+            <strong data-lang="en">Education and credentials</strong>
+            <span data-lang="es">Ingeniería en Sistemas Computacionales · ITIL v3 · VMware Cloud on AWS · Gestión de Proyectos.</span>
+            <span data-lang="en">Computer Systems Engineering · ITIL v3 · VMware Cloud on AWS · Project Management.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section>
+    <div class="container">
+      <div class="results-grid">
+        <div class="result"><strong>20+</strong><span data-lang="es">Años liderando infraestructura y operaciones TI</span><span data-lang="en">Years leading infrastructure and IT operations</span></div>
+        <div class="result"><strong>350+</strong><span data-lang="es">Servidores migrados en iniciativas críticas</span><span data-lang="en">Servers migrated in critical initiatives</span></div>
+        <div class="result"><strong>$1.2M MXN</strong><span data-lang="es">Ahorro mensual estimado por optimización</span><span data-lang="en">Estimated monthly savings through optimization</span></div>
+        <div class="result"><strong>USD 500K+</strong><span data-lang="es">Ingresos acumulados en rol técnico-comercial</span><span data-lang="en">Revenue generated in technical-commercial role</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="perfil">
+    <div class="container">
+      <div class="section-head">
+        <div class="tag" data-lang="es">Perfil Ejecutivo</div>
+        <div class="tag" data-lang="en">Executive Profile</div>
+        <h2 data-lang="es">Un perfil orientado a decisiones de negocio, eficiencia operativa y transformación tecnológica.</h2>
+        <h2 data-lang="en">A profile built around business decisions, operational efficiency, and technology transformation.</h2>
+        <p data-lang="es">Mi experiencia combina liderazgo técnico, control presupuestal y ejecución de iniciativas de infraestructura que fortalecen la continuidad operativa y habilitan crecimiento empresarial.</p>
+        <p data-lang="en">My experience combines technical leadership, budget ownership, and execution of infrastructure initiatives that strengthen operational continuity and enable business growth.</p>
+      </div>
+      <div class="grid highlights">
+        <div class="card"><div class="icon">01</div><h3 data-lang="es">Estrategia de Infraestructura</h3><h3 data-lang="en">Infrastructure Strategy</h3><p data-lang="es">Definición y evolución de plataformas on-premise, híbridas y multicloud alineadas al negocio.</p><p data-lang="en">Design and evolution of on-premise, hybrid, and multicloud platforms aligned with business priorities.</p></div>
+        <div class="card"><div class="icon">02</div><h3 data-lang="es">Optimización de Costos</h3><h3 data-lang="en">Cost Optimization</h3><p data-lang="es">Consolidación de recursos, eficiencia de storage y decisiones de arquitectura con impacto financiero medible.</p><p data-lang="en">Resource consolidation, storage efficiency, and architecture decisions with measurable financial impact.</p></div>
+        <div class="card"><div class="icon">03</div><h3 data-lang="es">Continuidad y Resiliencia</h3><h3 data-lang="en">Continuity and Resilience</h3><p data-lang="es">Disaster Recovery, backup, seguridad y operación estable para plataformas críticas en entorno regulado.</p><p data-lang="en">Disaster Recovery, backup, security, and stable operations for critical platforms in regulated environments.</p></div>
+        <div class="card"><div class="icon">04</div><h3 data-lang="es">Liderazgo Técnico</h3><h3 data-lang="en">Technical Leadership</h3><p data-lang="es">Coordinación de equipos especializados, proveedores estratégicos y soporte multinacional.</p><p data-lang="en">Leadership of specialized teams, strategic vendors, and multinational support operations.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="logros">
+    <div class="container">
+      <div class="section-head">
+        <div class="tag" data-lang="es">Logros</div>
+        <div class="tag" data-lang="en">Achievements</div>
+        <h2 data-lang="es">Resultados cuantificables y un caso de éxito reconocido.</h2>
+        <h2 data-lang="en">Quantifiable results and a recognized success story.</h2>
+        <p data-lang="es">Mi trayectoria incluye iniciativas con impacto visible en velocidad de implementación, ahorro operativo, continuidad y evolución tecnológica.</p>
+        <p data-lang="en">My track record includes initiatives with visible impact on implementation speed, operating savings, business continuity, and technology evolution.</p>
+      </div>
+
+      <div class="achievement-wrap">
+        <div class="card">
+          <h3 data-lang="es">Caso de éxito VMware / Provident</h3>
+          <h3 data-lang="en">VMware / Provident success story</h3>
+          <p class="quote" data-lang="es">“Apoya Provident su crecimiento en México con el cambio a la nube VMware”.</p>
+          <p class="quote" data-lang="en">“Provident supports its growth in Mexico by moving to VMware cloud.”</p>
+          <p style="margin-top:14px;" data-lang="es">El caso de éxito destaca la transición estratégica a VMware Cloud on AWS para acelerar tiempos de implementación, reducir riesgo de migración y disminuir costos operativos.</p>
+          <p style="margin-top:14px;" data-lang="en">The success story highlights a strategic move to VMware Cloud on AWS to accelerate implementation timelines, reduce migration risk, and lower operating costs.</p>
+          <div class="metric-list">
+            <div class="metric"><strong data-lang="es">18 meses → menos de 5 meses</strong><strong data-lang="en">18 months → less than 5 months</strong><span data-lang="es">Reducción del tiempo de implementación del proyecto.</span><span data-lang="en">Implementation timeline reduction.</span></div>
+            <div class="metric"><strong>23%</strong><span data-lang="es">Reducción del time-to-market del negocio.</span><span data-lang="en">Reduction in business time-to-market.</span></div>
+            <div class="metric"><strong data-lang="es">Más de 60%</strong><strong data-lang="en">Over 60%</strong><span data-lang="es">Ahorro mensual en costos operativos.</span><span data-lang="en">Monthly operating cost savings.</span></div>
+          </div>
+        </div>
+
+        <div class="card resource-card">
+          <h3 data-lang="es">Resultados de negocio</h3>
+          <h3 data-lang="en">Business outcomes</h3>
+          <p data-lang="es">En Provident lideré migraciones on-premise a VMware Cloud on AWS, VMC a VMC y evolución hacia AWS nativo para más de 350 servidores, además de iniciativas de Disaster Recovery, backup, seguridad y optimización de plataformas productivas.</p>
+          <p data-lang="en">At Provident, I led on-premise to VMware Cloud on AWS migrations, VMC-to-VMC transitions, and evolution toward native AWS for more than 350 servers, along with Disaster Recovery, backup, security, and production platform optimization initiatives.</p>
+          <p style="margin-top:14px;" data-lang="es">También generé un ahorro estimado de MXN $1.2M mensuales mediante optimización de storage y consolidación de hosts, reforzando la eficiencia financiera de la operación.</p>
+          <p style="margin-top:14px;" data-lang="en">I also generated an estimated MXN $1.2M in monthly savings through storage optimization and host consolidation, strengthening financial efficiency across the operation.</p>
+          <p style="margin-top:18px;" data-lang="es">Recurso adjunto:</p>
+          <p style="margin-top:18px;" data-lang="en">Attached resource:</p>
+          <a class="inline-link" href="Compartiendo%20mi%20crecimiento%20en%20Provident.pdf" target="_blank">PDF VMware Case Study</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experiencia">
+    <div class="container">
+      <div class="section-head">
+        <div class="tag" data-lang="es">Experiencia Profesional</div>
+        <div class="tag" data-lang="en">Professional Experience</div>
+        <h2 data-lang="es">Trayectoria en liderazgo de infraestructura, operaciones y transformación tecnológica.</h2>
+        <h2 data-lang="en">Track record in infrastructure leadership, operations, and technology transformation.</h2>
+        <p data-lang="es">Experiencia construida en organizaciones de servicios financieros, operación empresarial e implementación tecnológica.</p>
+        <p data-lang="en">Experience built across financial services, enterprise operations, and technology implementation environments.</p>
+      </div>
+      <div class="grid timeline">
+        <div class="card timeline-item">
+          <div class="time">2014 – 2025</div>
+          <div class="detail">
+            <h3>Provident México</h3>
+            <p data-lang="es">Liderazgo estratégico de infraestructura y operaciones TI, con foco en migraciones críticas, optimización de costos, continuidad operativa y desempeño de plataformas productivas.</p>
+            <p data-lang="en">Strategic leadership of infrastructure and IT operations, focused on critical migrations, cost optimization, operational continuity, and performance of production platforms.</p>
+            <ul>
+              <li data-lang="es">Migraciones on-premise a VMware Cloud on AWS, VMC a VMC y transición a AWS nativo para 350+ servidores.</li>
+              <li data-lang="en">On-premise to VMware Cloud on AWS migrations, VMC-to-VMC transitions, and move to native AWS for 350+ servers.</li>
+              <li data-lang="es">Ahorro estimado de MXN $1.2M mensuales mediante optimización de storage y consolidación de 12 a 9 hosts.</li>
+              <li data-lang="en">Estimated MXN $1.2M monthly savings through storage optimization and host consolidation from 12 to 9 hosts.</li>
+              <li data-lang="es">Implementación de Disaster Recovery, backup y fortalecimiento de seguridad en entorno financiero regulado.</li>
+              <li data-lang="en">Implementation of Disaster Recovery, backup, and security strengthening in a regulated financial environment.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card timeline-item">
+          <div class="time">2012 – 2014</div>
+          <div class="detail">
+            <h3>Soluciones Infraserv</h3>
+            <p data-lang="es">Implementaciones de infraestructura tecnológica para múltiples clientes con enfoque técnico-comercial.</p>
+            <p data-lang="en">Technology infrastructure implementations for multiple clients with a technical-commercial approach.</p>
+            <ul>
+              <li data-lang="es">Generación de ingresos acumulados superiores a USD $500,000 en un año.</li>
+              <li data-lang="en">Generated cumulative revenue exceeding USD $500,000 in one year.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card timeline-item">
+          <div class="time">2011 – 2012</div>
+          <div class="detail">
+            <h3>Consupago</h3>
+            <p data-lang="es">Administración de procesos y políticas de TI, liderazgo de equipos de soporte y gestión de plataformas corporativas.</p>
+            <p data-lang="en">Administration of IT processes and policies, support team leadership, and management of corporate platforms.</p>
+          </div>
+        </div>
+        <div class="card timeline-item">
+          <div class="time">2004 – 2010</div>
+          <div class="detail">
+            <h3>Montepío Luz Saviñón</h3>
+            <p data-lang="es">Liderazgo de equipos de hasta 20 personas, implementación de ITIL y supervisión de soporte técnico y seguridad perimetral en 248 sucursales a nivel nacional.</p>
+            <p data-lang="en">Led teams of up to 20 people, implemented ITIL, and supervised technical support and perimeter security across 248 branches nationwide.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="capacidades">
+    <div class="container">
+      <div class="section-head">
+        <div class="tag" data-lang="es">Capacidades Clave</div>
+        <div class="tag" data-lang="en">Core Capabilities</div>
+        <h2 data-lang="es">Competencias que aportan valor en posiciones de liderazgo tecnológico.</h2>
+        <h2 data-lang="en">Capabilities that create value in technology leadership roles.</h2>
+        <p data-lang="es">Un perfil preparado para dirigir infraestructura, cloud strategy, eficiencia financiera y modernización operativa.</p>
+        <p data-lang="en">A profile prepared to lead infrastructure, cloud strategy, financial efficiency, and operational modernization.</p>
+      </div>
+      <div class="chip-grid">
+        <div class="chip">Infraestructura híbrida y multicloud / Hybrid & multicloud infrastructure</div>
+        <div class="chip">VMware Cloud on AWS</div>
+        <div class="chip">AWS / Cloud transition</div>
+        <div class="chip">Virtualización / Virtualization</div>
+        <div class="chip">Disaster Recovery & Backup</div>
+        <div class="chip">Optimización de costos / Cost optimization</div>
+        <div class="chip">Gestión de presupuesto / Budget ownership</div>
+        <div class="chip">Liderazgo de equipos técnicos / Technical leadership</div>
+        <div class="chip">Gestión de proveedores / Vendor management</div>
+        <div class="chip">Seguridad y continuidad operativa / Security & continuity</div>
+        <div class="chip">ITIL v3</div>
+        <div class="chip">Gestión de proyectos / Project management</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto">
+    <div class="container">
+      <div class="section-head">
+        <div class="tag" data-lang="es">Contacto</div>
+        <div class="tag" data-lang="en">Contact</div>
+        <h2 data-lang="es">Abierto a conversaciones con reclutadores y líderes de negocio.</h2>
+        <h2 data-lang="en">Open to conversations with recruiters and business leaders.</h2>
+        <p data-lang="es">Disponible para posiciones ejecutivas o de liderazgo en infraestructura, cloud, operaciones TI y transformación tecnológica.</p>
+        <p data-lang="en">Available for executive and leadership opportunities in infrastructure, cloud, IT operations, and technology transformation.</p>
+      </div>
+      <div class="contact-box">
+        <div class="card contact-list">
+          <h3 data-lang="es">Información de contacto</h3>
+          <h3 data-lang="en">Contact information</h3>
+          <p><strong style="color:#fff;" data-lang="es">Ubicación:</strong><strong style="color:#fff;" data-lang="en">Location:</strong> Puebla, México</p>
+          <p><strong style="color:#fff;" data-lang="es">Modalidad:</strong><strong style="color:#fff;" data-lang="en">Work model:</strong> <span data-lang="es">Remoto / Híbrido</span><span data-lang="en">Remote / Hybrid</span></p>
+          <p><strong style="color:#fff;">Tel:</strong> +52 222 188 8741</p>
+          <p><strong style="color:#fff;">Email:</strong> jacc42cruz@gmail.com</p>
+          <p><strong style="color:#fff;">LinkedIn:</strong> <a href="https://linkedin.com/in/jose-abraham-cruz-carmona-73277020" target="_blank" rel="noopener noreferrer">linkedin.com/in/jose-abraham-cruz-carmona-73277020</a></p>
+        </div>
+        <div class="card">
+          <h3 data-lang="es">Mensaje profesional</h3>
+          <h3 data-lang="en">Professional statement</h3>
+          <p data-lang="es">He liderado iniciativas críticas de infraestructura y nube con impacto medible en costo, velocidad de implementación y resiliencia operativa. Busco seguir aportando ese enfoque en organizaciones que valoren la ejecución estratégica, el liderazgo técnico y la transformación tecnológica alineada al negocio.</p>
+          <p data-lang="en">I have led critical infrastructure and cloud initiatives with measurable impact on cost, implementation speed, and operational resilience. I am looking to continue bringing that approach to organizations that value strategic execution, technical leadership, and business-aligned technology transformation.</p>
+          <div class="cta-row" style="margin-top:18px;">
+            <a class="btn btn-primary" href="mailto:jacc42cruz@gmail.com">Email</a>
+            <a class="btn btn-secondary" href="https://linkedin.com/in/jose-abraham-cruz-carmona-73277020" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="footer">
+    <div class="container">© 2026 José Abraham Cruz Carmona · Executive professional website</div>
+  </div>
+
+  <script>
+    function setLanguage(lang) {
+      document.body.classList.toggle('lang-en', lang === 'en');
+      document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+      document.querySelector('.lang-btn.' + lang).classList.add('active');
+      localStorage.setItem('siteLanguage', lang);
+      document.documentElement.lang = lang;
+    }
+
+    const savedLanguage = localStorage.getItem('siteLanguage') || 'es';
+    setLanguage(savedLanguage);
+  </script>
+</body>
+</html>
+  
