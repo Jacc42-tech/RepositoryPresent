@@ -12,6 +12,7 @@
       --bg:#07101d;
       --bg-2:#0b1628;
       --panel:rgba(255,255,255,.05);
+      --panel-2:rgba(255,255,255,.035);
       --line:rgba(255,255,255,.10);
       --text:#edf3ff;
       --muted:#aebbd3;
@@ -66,7 +67,7 @@
       background:rgba(255,255,255,.05);border:1px solid var(--line);font-size:.88rem;font-weight:800;margin-bottom:18px
     }
     .eyebrow::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--green);box-shadow:0 0 20px var(--green)}
-    h1{font-size:clamp(2.6rem,5vw,4.6rem));line-height:.98;letter-spacing:-.05em;margin-bottom:16px;max-width:760px}
+    h1{font-size:clamp(2.7rem,4.8vw,4.4rem);line-height:1.02;letter-spacing:-.04em;margin-bottom:16px;max-width:760px;color:var(--text)}
     .hero p{color:var(--muted);font-size:1.08rem;max-width:690px;margin-bottom:26px}
     .kicker{
       display:flex;flex-wrap:wrap;gap:10px;margin-bottom:18px
@@ -161,10 +162,14 @@
     .footer{padding:30px 0 42px;border-top:1px solid var(--line);text-align:center;color:var(--muted)}
 
     [data-lang="en"]{display:none}
-    body.lang-en [data-lang="es"]{display:none}
-    body.lang-en [data-lang="en"]{display:initial}
-    body.lang-en div[data-lang="en"], body.lang-en p[data-lang="en"], body.lang-en h1[data-lang="en"], body.lang-en h2[data-lang="en"], body.lang-en h3[data-lang="en"], body.lang-en span[data-lang="en"], body.lang-en a[data-lang="en"], body.lang-en small[data-lang="en"]{display:block}
-    body.lang-en .btn[data-lang="en"], body.lang-en .eyebrow[data-lang="en"], body.lang-en .tag[data-lang="en"], body.lang-en .badge[data-lang="en"]{display:inline-flex}
+    body.lang-en [data-lang="es"]{display:none !important}
+    body.lang-en [data-lang="en"]{display:inline}
+    body.lang-en p[data-lang="en"],
+    body.lang-en h1[data-lang="en"],
+    body.lang-en h2[data-lang="en"],
+    body.lang-en h3[data-lang="en"],
+    body.lang-en small[data-lang="en"],
+    body.lang-en div[data-lang="en"]{display:block}
     body.lang-en .lang-btn.en{background:linear-gradient(135deg,var(--blue),var(--cyan));border-color:transparent}
     body.lang-en .lang-btn.es{background:rgba(255,255,255,.04);border-color:var(--line)}
 
@@ -193,8 +198,7 @@
     <div class="container nav">
       <div class="brand">
         José Abraham Cruz Carmona
-        <small data-lang="es">Liderazgo Ejecutivo en Infraestructura y Cloud</small>
-        <small data-lang="en">Executive Infrastructure & Cloud Leader</small>
+        <small><span data-lang="es">Liderazgo Ejecutivo en Infraestructura y Cloud</span><span data-lang="en">Executive Infrastructure & Cloud Leader</span></small>
       </div>
       <div class="nav-right">
         <div class="nav-links">
@@ -244,10 +248,9 @@
           </div>
           <div class="profile-title">
             <h2>José Abraham Cruz Carmona</h2>
-            <p data-lang="es">Puebla, México · Remoto / Híbrido</p>
-            <p data-lang="en">Puebla, Mexico · Remote / Hybrid</p>
+            <p><span data-lang="es">Puebla, México · Remoto / Híbrido</span><span data-lang="en">Puebla, Mexico · Remote / Hybrid</span></p>
             <div class="badge-row">
-              <span class="badge" data-lang="es">Estrategia en Nube</span>
+              <span class="badge" data-lang="es">Cloud Strategy</span>
               <span class="badge" data-lang="en">Cloud Strategy</span>
               <span class="badge" data-lang="es">Infraestructura híbrida</span>
               <span class="badge" data-lang="en">Hybrid Infrastructure</span>
@@ -258,18 +261,12 @@
         </div>
         <div class="mini-grid">
           <div class="mini-item">
-            <strong>
-             <span data-lang="es">Propuesta de valor</span>
-             <span data-lang="en">Value proposition</span>
-            </strong>    
+            <strong><span data-lang="es">Propuesta de valor</span><span data-lang="en">Value proposition</span></strong>
             <span data-lang="es">Combino liderazgo técnico, control presupuestal y ejecución estratégica para convertir infraestructura en una palanca de eficiencia y resiliencia empresarial.</span>
             <span data-lang="en">I combine technical leadership, budget ownership, and strategic execution to turn infrastructure into a lever for efficiency and business resilience.</span>
           </div>
           <div class="mini-item">
-          <strong>
-            <strong data-lang="es">Enfoque ejecutivo</strong>
-            <strong data-lang="en">Executive focus</strong>
-           </strong>   
+            <strong><span data-lang="es">Enfoque ejecutivo</span><span data-lang="en">Executive focus</span></strong>
             <span data-lang="es">Transformación híbrida y multicloud, continuidad operativa, optimización financiera y liderazgo de equipos de alto desempeño.</span>
             <span data-lang="en">Hybrid and multicloud transformation, business continuity, financial optimization, and leadership of high-performing teams.</span>
           </div>
@@ -475,8 +472,7 @@
       </div>
       <div class="contact-box">
         <div class="card contact-list">
-          <h3 data-lang="es">Información de contacto</h3>
-          <h3 data-lang="en">Contact information</h3>
+          <h3><span data-lang="es">Información de contacto</span><span data-lang="en">Contact information</span></h3>
           <p><strong style="color:#fff;" data-lang="es">Ubicación:</strong><strong style="color:#fff;" data-lang="en">Location:</strong> Puebla, México</p>
           <p><strong style="color:#fff;" data-lang="es">Modalidad:</strong><strong style="color:#fff;" data-lang="en">Work model:</strong> <span data-lang="es">Remoto / Híbrido</span><span data-lang="en">Remote / Hybrid</span></p>
           <p><strong style="color:#fff;">Tel:</strong> +52 222 188 8741</p>
@@ -484,8 +480,7 @@
           <p><strong style="color:#fff;">LinkedIn:</strong> <a href="https://linkedin.com/in/jose-abraham-cruz-carmona-73277020" target="_blank" rel="noopener noreferrer">linkedin.com/in/jose-abraham-cruz-carmona-73277020</a></p>
         </div>
         <div class="card">
-          <h3 data-lang="es">Executive Statement</h3>
-          <h3 data-lang="en">Executive Statement</h3>
+          <h3><span data-lang="es">Resumen ejecutivo</span><span data-lang="en">Executive Statement</span></h3>
           <p data-lang="es">He liderado iniciativas críticas de infraestructura y nube con impacto medible en costo, velocidad de implementación y resiliencia operativa. Busco contribuir en organizaciones que valoren la ejecución estratégica, el liderazgo técnico y la transformación tecnológica alineada al negocio.</p>
           <p data-lang="en">I have led critical infrastructure and cloud initiatives with measurable impact on cost, implementation speed, and operational resilience. I am looking to contribute to organizations that value strategic execution, technical leadership, and business-aligned technology transformation.</p>
           <div class="cta-row" style="margin-top:18px;">
@@ -514,3 +509,4 @@
   </script>
 </body>
 </html>
+
