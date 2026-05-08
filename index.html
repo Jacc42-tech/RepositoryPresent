@@ -1,512 +1,1060 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>José Abraham Cruz Carmona | Executive Infrastructure & Cloud Leader</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --bg:#07101d;
-      --bg-2:#0b1628;
-      --panel:rgba(255,255,255,.05);
-      --panel-2:rgba(255,255,255,.035);
-      --line:rgba(255,255,255,.10);
-      --text:#edf3ff;
-      --muted:#aebbd3;
-      --blue:#2563eb;
-      --cyan:#06b6d4;
-      --green:#22c55e;
-      --shadow:0 24px 70px rgba(0,0,0,.32);
-      --radius:28px;
-      --max:1180px;
-    }
-    *{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth}
-    body{
-      font-family:'Inter',Arial,sans-serif;
-      color:var(--text);
-      background:
-        radial-gradient(circle at 12% 10%, rgba(37,99,235,.18), transparent 22%),
-        radial-gradient(circle at 88% 12%, rgba(6,182,212,.14), transparent 20%),
-        linear-gradient(180deg, #060d18 0%, #0a1424 100%);
-      line-height:1.6;
-      overflow-x:hidden;
-    }
-    a{text-decoration:none;color:inherit}
-    img{max-width:100%;display:block}
-    .container{width:min(var(--max),92%);margin:auto}
-    .topbar{
-      position:sticky;top:0;z-index:999;
-      background:rgba(7,16,29,.72);
-      backdrop-filter:blur(16px);
-      border-bottom:1px solid var(--line)
-    }
-    .nav{
-      display:flex;justify-content:space-between;align-items:center;gap:20px;padding:16px 0
-    }
-    .brand{font-weight:900;letter-spacing:-.02em;font-size:1.08rem}
-    .brand small{display:block;color:var(--muted);font-size:.78rem;font-weight:600;letter-spacing:0}
-    .nav-right{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
-    .nav-links{display:flex;gap:18px;flex-wrap:wrap;align-items:center}
-    .nav-links a{color:var(--muted);font-weight:600}
-    .nav-links a:hover{color:#fff}
-    .lang-toggle{display:flex;gap:8px}
-    .lang-btn{
-      background:rgba(255,255,255,.04);border:1px solid var(--line);color:var(--text);
-      border-radius:12px;padding:8px 12px;font-weight:800;cursor:pointer
-    }
-    .lang-btn.active{background:linear-gradient(135deg,var(--blue),var(--cyan));border-color:transparent}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>José Abraham Cruz Carmona · Gerente de Infraestructura TI & Cloud</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0d1b2a;
+    --navy-mid: #162233;
+    --navy-light: #1e3049;
+    --gold: #c9a84c;
+    --gold-light: #e2c47a;
+    --gold-pale: #f5e9cc;
+    --cream: #faf8f4;
+    --text-primary: #1a1a2e;
+    --text-secondary: #4a5568;
+    --text-muted: #718096;
+    --border: rgba(201,168,76,0.2);
+    --border-light: rgba(201,168,76,0.08);
+  }
 
-    .hero{padding:72px 0 34px;position:relative}
-    .hero-grid{display:grid;grid-template-columns:1.04fr .96fr;gap:34px;align-items:center}
-    .eyebrow{
-      display:inline-flex;align-items:center;gap:10px;padding:8px 14px;border-radius:999px;
-      background:rgba(255,255,255,.05);border:1px solid var(--line);font-size:.88rem;font-weight:800;margin-bottom:18px
-    }
-    .eyebrow::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--green);box-shadow:0 0 20px var(--green)}
-    h1{font-size:clamp(2.7rem,4.8vw,4.4rem);line-height:1.02;letter-spacing:-.04em;margin-bottom:16px;max-width:760px;color:var(--text)}
-    .hero p{color:var(--muted);font-size:1.08rem;max-width:690px;margin-bottom:26px}
-    .kicker{
-      display:flex;flex-wrap:wrap;gap:10px;margin-bottom:18px
-    }
-    .kicker span{
-      padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.04);border:1px solid var(--line);font-weight:700;font-size:.83rem
-    }
-    .cta-row{display:flex;gap:14px;flex-wrap:wrap}
-    .btn{
-      display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 22px;border-radius:14px;
-      font-weight:800;border:1px solid transparent;transition:.2s ease
-    }
-    .btn-primary{background:linear-gradient(135deg,var(--blue),var(--cyan));box-shadow:0 16px 40px rgba(37,99,235,.28)}
-    .btn-secondary{background:rgba(255,255,255,.04);border-color:var(--line)}
-    .btn:hover{transform:translateY(-2px)}
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    .hero-card{
-      background:linear-gradient(180deg, rgba(255,255,255,.065), rgba(255,255,255,.03));
-      border:1px solid var(--line);border-radius:32px;padding:26px;box-shadow:var(--shadow);position:relative;overflow:hidden
-    }
-    .hero-card::after{
-      content:"";position:absolute;right:-45px;top:-45px;width:180px;height:180px;border-radius:50%;
-      background:radial-gradient(circle, rgba(37,99,235,.22), transparent 65%);
-    }
-    .profile-top{display:grid;grid-template-columns:150px 1fr;gap:22px;align-items:center;margin-bottom:20px}
-    .photo-wrap{
-      width:150px;height:190px;border-radius:28px;overflow:hidden;border:1px solid var(--line);
-      background:rgba(255,255,255,.05);box-shadow:var(--shadow)
-    }
-    .photo-wrap img{width:100%;height:100%;object-fit:cover}
-    .profile-title h2{font-size:1.72rem;line-height:1.05;margin-bottom:8px;letter-spacing:-.03em}
-    .profile-title p{color:var(--muted);margin-bottom:12px}
-    .badge-row{display:flex;flex-wrap:wrap;gap:10px}
-    .badge{padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.05);border:1px solid var(--line);font-weight:800;font-size:.82rem}
-    .mini-grid{display:grid;grid-template-columns:1fr;gap:12px}
-    .mini-item{padding:15px 16px;border-radius:18px;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.06)}
-    .mini-item strong{display:block;margin-bottom:4px;font-size:.95rem}
-    .mini-item span{color:var(--muted);font-size:.93rem}
+  html { scroll-behavior: smooth; }
 
-    .snapshot{padding:18px 0 18px}
-    .snapshot-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-    .snap{
-      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
-      border:1px solid var(--line);border-radius:22px;padding:22px;box-shadow:var(--shadow)
-    }
-    .snap strong{display:block;font-size:1.6rem;line-height:1;margin-bottom:10px}
-    .snap span{color:var(--muted);font-size:.94rem}
+  body {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    background: var(--cream);
+    color: var(--text-primary);
+    font-size: 16px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
 
-    section{padding:82px 0}
-    .section-head{max-width:840px;margin:0 auto 42px;text-align:center}
-    .tag{display:inline-block;padding:7px 13px;border-radius:999px;background:rgba(255,255,255,.05);border:1px solid var(--line);font-size:.8rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;margin-bottom:14px}
-    .section-head h2{font-size:clamp(2rem,3.1vw,3.1rem);line-height:1.05;letter-spacing:-.03em;margin-bottom:12px}
-    .section-head p{color:var(--muted)}
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(13,27,42,0.97);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(201,168,76,0.15);
+    padding: 0 2rem;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 
-    .grid{display:grid;gap:20px}
-    .highlights{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
-    .impact-grid{grid-template-columns:1.1fr .9fr;gap:22px}
-    .timeline{max-width:1030px;margin:auto}
-    .card{
-      background:linear-gradient(180deg, rgba(255,255,255,.055), rgba(255,255,255,.03));
-      border:1px solid var(--line);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow)
-    }
-    .card h3{margin-bottom:10px;font-size:1.16rem;letter-spacing:-.02em}
-    .card p,.card li{color:var(--muted)}
-    .icon{width:54px;height:54px;border-radius:18px;background:linear-gradient(135deg, rgba(37,99,235,.28), rgba(6,182,212,.18));display:grid;place-items:center;font-weight:900;margin-bottom:14px}
+  .nav-brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--gold-light);
+    letter-spacing: 0.05em;
+    text-decoration: none;
+  }
 
-    .impact-metrics{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:18px}
-    .metric{padding:18px;border-radius:20px;background:rgba(255,255,255,.04);border:1px solid var(--line)}
-    .metric strong{display:block;font-size:1.42rem;line-height:1.05;margin-bottom:8px}
-    .metric span{color:var(--muted);font-size:.93rem}
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
 
-    .featured{display:grid;grid-template-columns:1.05fr .95fr;gap:22px;align-items:stretch}
-    .quote{font-size:1.08rem;color:#dce9ff}
-    .resource-box{display:grid;gap:12px;margin-top:18px}
-    .resource-link{display:inline-flex;align-items:center;gap:10px;color:#8fd9ff;font-weight:800}
+  .nav-links a {
+    color: rgba(255,255,255,0.6);
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
 
-    .timeline-item{display:grid;grid-template-columns:170px 1fr;gap:22px;align-items:start}
-    .timeline-item + .timeline-item{margin-top:18px}
-    .time{padding-top:6px;color:#d9e6ff;font-weight:800}
-    .detail ul{padding-left:18px;margin-top:10px}
+  .nav-links a:hover { color: var(--gold-light); }
 
-    .capability-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
-    .capability{
-      padding:20px;border-radius:22px;background:linear-gradient(180deg, rgba(255,255,255,.055), rgba(255,255,255,.03));
-      border:1px solid var(--line);box-shadow:var(--shadow)
-    }
-    .capability h3{font-size:1rem;line-height:1.15;margin-bottom:10px}
-    .capability p{color:var(--muted);font-size:.92rem}
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    background: var(--navy);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    overflow: hidden;
+  }
 
-    .contact-box{display:grid;grid-template-columns:1fr 1fr;gap:22px}
-    .contact-list p{margin-bottom:10px;color:var(--muted)}
-    .footer{padding:30px 0 42px;border-top:1px solid var(--line);text-align:center;color:var(--muted)}
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: 
+      radial-gradient(ellipse 60% 80% at 70% 50%, rgba(201,168,76,0.04) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 60% at 20% 80%, rgba(30,48,73,0.8) 0%, transparent 50%);
+  }
 
-    [data-lang="en"]{display:none}
-    body.lang-en [data-lang="es"]{display:none !important}
-    body.lang-en [data-lang="en"]{display:inline}
-    body.lang-en p[data-lang="en"],
-    body.lang-en h1[data-lang="en"],
-    body.lang-en h2[data-lang="en"],
-    body.lang-en h3[data-lang="en"],
-    body.lang-en small[data-lang="en"],
-    body.lang-en div[data-lang="en"]{display:block}
-    body.lang-en .lang-btn.en{background:linear-gradient(135deg,var(--blue),var(--cyan));border-color:transparent}
-    body.lang-en .lang-btn.es{background:rgba(255,255,255,.04);border-color:var(--line)}
+  .hero-lines {
+    position: absolute;
+    top: 0; right: 0;
+    width: 50%;
+    height: 100%;
+    opacity: 0.04;
+    background: repeating-linear-gradient(
+      90deg,
+      var(--gold) 0,
+      var(--gold) 1px,
+      transparent 1px,
+      transparent 80px
+    );
+  }
 
-    @media (max-width:1100px){
-      .snapshot-grid{grid-template-columns:repeat(2,1fr)}
-      .capability-grid{grid-template-columns:repeat(3,1fr)}
-    }
-    @media (max-width:980px){
-      .hero-grid,.featured,.impact-grid,.contact-box{grid-template-columns:1fr}
-      .profile-top{grid-template-columns:150px 1fr}
-    }
-    @media (max-width:760px){
-      .nav{align-items:flex-start;flex-direction:column}
-      .nav-right{align-items:flex-start}
-      .hero{padding:50px 0 26px}
-      .snapshot-grid,.impact-metrics,.capability-grid{grid-template-columns:1fr}
-      .profile-top,.timeline-item{grid-template-columns:1fr}
-      .photo-wrap{width:100%;max-width:230px;height:290px}
-      h1{font-size:2.7rem}
-      section{padding:64px 0}
-    }
-  </style>
+  .hero-left {
+    padding: 140px 4rem 80px 6rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(201,168,76,0.12);
+    border: 1px solid rgba(201,168,76,0.3);
+    border-radius: 2px;
+    padding: 0.4rem 1rem;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-bottom: 2.5rem;
+    width: fit-content;
+    animation: fadeUp 0.8s ease both;
+  }
+
+  .badge-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  .hero-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.8rem, 5vw, 4.2rem);
+    font-weight: 300;
+    color: #fff;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    margin-bottom: 1rem;
+    animation: fadeUp 0.8s 0.15s ease both;
+  }
+
+  .hero-name em {
+    font-style: italic;
+    color: var(--gold-light);
+  }
+
+  .hero-title {
+    font-size: 1rem;
+    font-weight: 400;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 0.05em;
+    margin-bottom: 2.5rem;
+    animation: fadeUp 0.8s 0.25s ease both;
+  }
+
+  .hero-headline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 300;
+    font-style: italic;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.5;
+    margin-bottom: 3rem;
+    border-left: 2px solid var(--gold);
+    padding-left: 1.5rem;
+    animation: fadeUp 0.8s 0.35s ease both;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    animation: fadeUp 0.8s 0.45s ease both;
+  }
+
+  .btn-primary {
+    background: var(--gold);
+    color: var(--navy);
+    border: none;
+    padding: 0.85rem 2rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: background 0.2s, transform 0.2s;
+    cursor: pointer;
+  }
+
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+  .btn-outline {
+    background: transparent;
+    color: rgba(255,255,255,0.7);
+    border: 1px solid rgba(255,255,255,0.2);
+    padding: 0.85rem 2rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: border-color 0.2s, color 0.2s, transform 0.2s;
+  }
+
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold-light); transform: translateY(-1px); }
+
+  .hero-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+    padding: 140px 5rem 80px 2rem;
+  }
+
+  .metrics-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    animation: fadeUp 0.8s 0.5s ease both;
+  }
+
+  .metric-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(201,168,76,0.15);
+    border-radius: 4px;
+    padding: 2rem 1.75rem;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s, background 0.3s;
+  }
+
+  .metric-card:hover {
+    border-color: rgba(201,168,76,0.4);
+    background: rgba(255,255,255,0.06);
+  }
+
+  .metric-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px; height: 100%;
+    background: var(--gold);
+    opacity: 0.6;
+  }
+
+  .metric-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.6rem;
+    font-weight: 300;
+    color: var(--gold-light);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+
+  .metric-label {
+    font-size: 0.78rem;
+    font-weight: 400;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.4;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* SECTIONS */
+  section { padding: 100px 6rem; }
+
+  .section-label {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 300;
+    line-height: 1.2;
+    color: var(--navy);
+    margin-bottom: 1.5rem;
+  }
+
+  .section-intro {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    max-width: 640px;
+    line-height: 1.8;
+    margin-bottom: 4rem;
+  }
+
+  /* PERFIL */
+  #perfil {
+    background: var(--cream);
+    padding-top: 120px;
+  }
+
+  .perfil-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .perfil-text p {
+    color: var(--text-secondary);
+    margin-bottom: 1.25rem;
+    font-size: 1rem;
+    line-height: 1.85;
+  }
+
+  .perfil-stack {
+    margin-top: 2.5rem;
+  }
+
+  .stack-label {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .tag {
+    background: #fff;
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+    font-size: 0.78rem;
+    font-weight: 400;
+    padding: 0.35rem 0.9rem;
+    border-radius: 2px;
+    letter-spacing: 0.02em;
+  }
+
+  .tag.gold {
+    background: var(--gold-pale);
+    border-color: var(--gold);
+    color: #7a5c1e;
+    font-weight: 500;
+  }
+
+  .perfil-right {
+    position: sticky;
+    top: 80px;
+  }
+
+  .capabilities-list {
+    list-style: none;
+  }
+
+  .capabilities-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.25rem 0;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+  }
+
+  .cap-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--gold);
+    flex-shrink: 0;
+    line-height: 1;
+    margin-top: 2px;
+  }
+
+  .cap-text strong {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--navy);
+    margin-bottom: 0.2rem;
+  }
+
+  .cap-text span {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  /* LOGROS */
+  #logros {
+    background: var(--navy);
+    position: relative;
+    overflow: hidden;
+  }
+
+  #logros::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 70% 70% at 80% 50%, rgba(201,168,76,0.05) 0%, transparent 60%);
+  }
+
+  #logros .section-title { color: #fff; }
+  #logros .section-label { color: var(--gold); }
+  #logros .section-intro { color: rgba(255,255,255,0.55); }
+
+  .logros-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5px;
+    background: rgba(201,168,76,0.15);
+    border: 1px solid rgba(201,168,76,0.15);
+    position: relative;
+    z-index: 1;
+  }
+
+  .logro-item {
+    background: var(--navy-mid);
+    padding: 2.5rem 2rem;
+    transition: background 0.2s;
+  }
+
+  .logro-item:hover { background: var(--navy-light); }
+
+  .logro-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem;
+    font-weight: 300;
+    color: var(--gold-light);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+
+  .logro-title {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #fff;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .logro-desc {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.6;
+  }
+
+  /* VMware */
+  .vmware-banner {
+    margin-top: 4rem;
+    background: rgba(201,168,76,0.08);
+    border: 1px solid rgba(201,168,76,0.25);
+    border-radius: 4px;
+    padding: 2.5rem 3rem;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 3rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .vmware-label {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.75rem;
+  }
+
+  .vmware-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-style: italic;
+    color: rgba(255,255,255,0.85);
+    font-weight: 300;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+  }
+
+  .vmware-sub {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.6;
+  }
+
+  .vmware-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    flex-shrink: 0;
+  }
+
+  .link-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: transparent;
+    border: 1px solid rgba(201,168,76,0.3);
+    color: var(--gold-light);
+    font-size: 0.78rem;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    padding: 0.6rem 1.25rem;
+    border-radius: 2px;
+    text-decoration: none;
+    text-align: center;
+    transition: background 0.2s, border-color 0.2s;
+    white-space: nowrap;
+  }
+
+  .link-pill:hover { background: rgba(201,168,76,0.1); border-color: var(--gold); }
+
+  /* EXPERIENCIA */
+  #experiencia {
+    background: #fff;
+  }
+
+  .timeline {
+    position: relative;
+    padding-left: 2rem;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 8px; bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+  }
+
+  .timeline-item {
+    position: relative;
+    padding-left: 2.5rem;
+    margin-bottom: 4rem;
+  }
+
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -2rem; top: 10px;
+    width: 9px; height: 9px;
+    border-radius: 50%;
+    background: var(--gold);
+    border: 2px solid #fff;
+    box-shadow: 0 0 0 2px var(--gold);
+  }
+
+  .timeline-period {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.35rem;
+  }
+
+  .timeline-company {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--navy);
+    margin-bottom: 0.2rem;
+  }
+
+  .timeline-role {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 1.25rem;
+    font-weight: 400;
+  }
+
+  .timeline-desc {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.85;
+    max-width: 720px;
+  }
+
+  .timeline-highlights {
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .highlight-chip {
+    background: var(--gold-pale);
+    border: 1px solid rgba(201,168,76,0.3);
+    color: #7a5c1e;
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 0.3rem 0.85rem;
+    border-radius: 2px;
+  }
+
+  /* CONTACTO */
+  #contacto {
+    background: var(--navy);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  #contacto::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 60% 80% at 50% 0%, rgba(201,168,76,0.06) 0%, transparent 60%);
+  }
+
+  #contacto .section-title { color: #fff; }
+  #contacto .section-label { color: var(--gold); }
+
+  .contact-lead {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem;
+    font-style: italic;
+    font-weight: 300;
+    color: rgba(255,255,255,0.6);
+    max-width: 560px;
+    margin: 0 auto 3.5rem;
+    line-height: 1.7;
+    position: relative;
+    z-index: 1;
+  }
+
+  .contact-grid {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .contact-item {
+    text-align: center;
+  }
+
+  .contact-item-label {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.4rem;
+  }
+
+  .contact-item-value {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.75);
+  }
+
+  .contact-item-value a {
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .contact-item-value a:hover { color: var(--gold-light); }
+
+  .contact-cta {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+  }
+
+  footer {
+    background: var(--navy);
+    border-top: 1px solid rgba(201,168,76,0.1);
+    padding: 1.5rem 6rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  footer p {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.25);
+  }
+
+  .footer-cert {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.25);
+    letter-spacing: 0.05em;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-left { padding: 120px 2rem 3rem; }
+    .hero-right { padding: 0 2rem 4rem; }
+    .metrics-grid { grid-template-columns: 1fr 1fr; }
+    section { padding: 70px 2rem; }
+    .perfil-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .perfil-right { position: static; }
+    .logros-grid { grid-template-columns: 1fr; }
+    footer { flex-direction: column; gap: 0.5rem; text-align: center; padding: 1.5rem 2rem; }
+    .vmware-banner { grid-template-columns: 1fr; gap: 1.5rem; }
+    nav { padding: 0 1.5rem; }
+    .nav-links { gap: 1rem; }
+  }
+</style>
 </head>
 <body>
-  <div class="topbar">
-    <div class="container nav">
-      <div class="brand">
-        José Abraham Cruz Carmona
-        <small><span data-lang="es">Liderazgo Ejecutivo en Infraestructura y Cloud</span><span data-lang="en">Executive Infrastructure & Cloud Leader</span></small>
-      </div>
-      <div class="nav-right">
-        <div class="nav-links">
-          <a href="#perfil"><span data-lang="es">Perfil</span><span data-lang="en">Profile</span></a>
-          <a href="#impacto"><span data-lang="es">Impacto</span><span data-lang="en">Impact</span></a>
-          <a href="#logros"><span data-lang="es">Logros</span><span data-lang="en">Achievements</span></a>
-          <a href="#experiencia"><span data-lang="es">Experiencia</span><span data-lang="en">Experience</span></a>
-          <a href="#contacto"><span data-lang="es">Contacto</span><span data-lang="en">Contact</span></a>
-        </div>
-        <div class="lang-toggle">
-          <button class="lang-btn es active" onclick="setLanguage('es')">ES</button>
-          <button class="lang-btn en" onclick="setLanguage('en')">EN</button>
-        </div>
-      </div>
+
+<nav>
+  <a class="nav-brand" href="#">JACC · Infraestructura & Cloud</a>
+  <ul class="nav-links">
+    <li><a href="#perfil">Perfil</a></li>
+    <li><a href="#logros">Impacto</a></li>
+    <li><a href="#experiencia">Trayectoria</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="hero-lines"></div>
+
+  <div class="hero-left">
+    <div class="hero-badge">
+      <span class="badge-dot"></span>
+      Disponible para posiciones estratégicas
+    </div>
+
+    <h1 class="hero-name">José Abraham<br><em>Cruz Carmona</em></h1>
+    <p class="hero-title">Gerente de Infraestructura TI & Cloud · Puebla, México · Remoto / Híbrido</p>
+
+    <p class="hero-headline">
+      20+ años transformando infraestructura en eficiencia financiera y resiliencia operativa en entornos financieros regulados.
+    </p>
+
+    <div class="hero-cta">
+      <a href="#contacto" class="btn-primary">Contactar</a>
+      <a href="https://jacc42-tech.github.io/RepositoryPresent/CV_Jose_Abraham_Cruz_Carmona_Executive_Final_ES01.pdf" target="_blank" class="btn-outline">Ver CV PDF</a>
+      <a href="https://linkedin.com/in/jose-abraham-cruz-carmona-73277020" target="_blank" class="btn-outline">LinkedIn</a>
     </div>
   </div>
 
-  <header class="hero" id="inicio">
-    <div class="container hero-grid">
-      <div>
-        <div class="eyebrow" data-lang="es">Disponible para posiciones estratégicas</div>
-        <div class="eyebrow" data-lang="en">Open to strategic leadership opportunities</div>
-
-        <div class="kicker">
-          <span>Hybrid Cloud</span>
-          <span>IT Operations</span>
-          <span>Cost Optimization</span>
-          <span>Business Resilience</span>
-        </div>
-
-        <h1 data-lang="es">Transformación de infraestructura y nube con visión ejecutiva y resultados de negocio.</h1>
-        <h1 data-lang="en">Infrastructure and cloud transformation with executive vision and business outcomes.</h1>
-
-        <p data-lang="es">Lidero iniciativas de infraestructura híbrida y multicloud enfocadas en eficiencia financiera, continuidad operativa, modernización tecnológica y velocidad de ejecución.</p>
-        <p data-lang="en">I lead hybrid and multicloud infrastructure initiatives focused on financial efficiency, operational continuity, technology modernization, and execution speed.</p>
-
-        <div class="cta-row">
-          <a class="btn btn-primary" href="#experiencia"><span data-lang="es">Ver experiencia</span><span data-lang="en">View experience</span></a>
-          <a class="btn btn-secondary" href="https://linkedin.com/in/jose-abraham-cruz-carmona-73277020" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        </div>
+  <div class="hero-right">
+    <div class="metrics-grid">
+      <div class="metric-card">
+        <div class="metric-value">20+</div>
+        <div class="metric-label">Años en liderazgo de infraestructura TI</div>
       </div>
+      <div class="metric-card">
+        <div class="metric-value">350+</div>
+        <div class="metric-label">Servidores migrados a nube híbrida</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value">89%</div>
+        <div class="metric-label">Reducción de costos operativos en 10 años</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value">$14.4M</div>
+        <div class="metric-label">MXN en ahorros recurrentes anuales</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-      <div class="hero-card">
-        <div class="profile-top">
-          <div class="photo-wrap">
-            <img src="fotojaccLinkedlin01.jpg" alt="José Abraham Cruz Carmona" />
-          </div>
-          <div class="profile-title">
-            <h2>José Abraham Cruz Carmona</h2>
-            <p><span data-lang="es">Puebla, México · Remoto / Híbrido</span><span data-lang="en">Puebla, Mexico · Remote / Hybrid</span></p>
-            <div class="badge-row">
-              <span class="badge" data-lang="es">Cloud Strategy</span>
-              <span class="badge" data-lang="en">Cloud Strategy</span>
-              <span class="badge" data-lang="es">Infraestructura híbrida</span>
-              <span class="badge" data-lang="en">Hybrid Infrastructure</span>
-              <span class="badge" data-lang="es">Optimización de costos</span>
-              <span class="badge" data-lang="en">Cost Optimization</span>
-            </div>
-          </div>
+<!-- PERFIL -->
+<section id="perfil">
+  <div class="section-label">Perfil ejecutivo</div>
+  <h2 class="section-title">Infraestructura que genera<br>resultados de negocio</h2>
+
+  <div class="perfil-grid">
+    <div class="perfil-text">
+      <p>
+        Gerente de Infraestructura TI & Cloud con más de 20 años de experiencia en entornos financieros regulados — sector bancario y financiero en México. Mi diferencial es convertir decisiones técnicas en impacto financiero medible: reduje costos operativos de <strong>MXN $4.5M a $500K por mes</strong> (89%) a lo largo de tres transformaciones completas de centro de datos.
+      </p>
+      <p>
+        Orquesté las tres migraciones de infraestructura de Provident México — On-Premise → VMware Cloud on AWS → AWS Nativo — con cero impacto en la continuidad del negocio y 99.9% de disponibilidad. Este trabajo fue reconocido por VMware en un <em>Customer Success Story</em> oficial y adoptado como modelo de replicación para subsidiarias del grupo IPF en Europa.
+      </p>
+      <p>
+        Gestión de presupuesto anual de $50M+ MXN, equipos directos de hasta 5 ingenieros, contratos Tier-1 con AWS, VMware y Microsoft, y estrategia multicloud híbrida (AWS · Azure · GCP) con cumplimiento de marcos regulatorios CNBV, GDPR e ITIL.
+      </p>
+
+      <div class="perfil-stack">
+        <div class="stack-label">Certificaciones</div>
+        <div class="tags" style="margin-bottom:1.25rem;">
+          <span class="tag gold">ITIL v3</span>
+          <span class="tag gold">VMware Cloud on AWS</span>
+          <span class="tag gold">En proceso: ISO 27001</span>
         </div>
-        <div class="mini-grid">
-          <div class="mini-item">
-            <strong><span data-lang="es">Propuesta de valor</span><span data-lang="en">Value proposition</span></strong>
-            <span data-lang="es">Combino liderazgo técnico, control presupuestal y ejecución estratégica para convertir infraestructura en una palanca de eficiencia y resiliencia empresarial.</span>
-            <span data-lang="en">I combine technical leadership, budget ownership, and strategic execution to turn infrastructure into a lever for efficiency and business resilience.</span>
-          </div>
-          <div class="mini-item">
-            <strong><span data-lang="es">Enfoque ejecutivo</span><span data-lang="en">Executive focus</span></strong>
-            <span data-lang="es">Transformación híbrida y multicloud, continuidad operativa, optimización financiera y liderazgo de equipos de alto desempeño.</span>
-            <span data-lang="en">Hybrid and multicloud transformation, business continuity, financial optimization, and leadership of high-performing teams.</span>
-          </div>
+        <div class="stack-label">Stack tecnológico</div>
+        <div class="tags">
+          <span class="tag">AWS (EC2, RDS, S3, Route53, FSx)</span>
+          <span class="tag">VMware vSphere · vSAN · NSX · HCX</span>
+          <span class="tag">Azure · GCP</span>
+          <span class="tag">Veeam · EMC NetWorker</span>
+          <span class="tag">Checkpoint · Tenable/Nessus</span>
+          <span class="tag">McAfee EPO</span>
+          <span class="tag">SolarWinds · AppDynamics · Dynatrace</span>
+          <span class="tag">ServiceNow</span>
+          <span class="tag">Active Directory · AD FS · Cognito</span>
+          <span class="tag">Citrix XenApp/XenDesktop</span>
         </div>
       </div>
     </div>
-  </header>
 
-  <section class="snapshot">
-    <div class="container">
-      <div class="snapshot-grid">
-        <div class="snap"><strong>20+</strong><span data-lang="es">Años en liderazgo de infraestructura y operaciones TI</span><span data-lang="en">Years in infrastructure and IT operations leadership</span></div>
-        <div class="snap"><strong>350+</strong><span data-lang="es">Servidores migrados en iniciativas críticas</span><span data-lang="en">Servers migrated in critical initiatives</span></div>
-        <div class="snap"><strong>MXN $1.2M</strong><span data-lang="es">Ahorro mensual estimado por optimización</span><span data-lang="en">Estimated monthly savings through optimization</span></div>
-        <div class="snap"><strong>VMware</strong><span data-lang="es">Caso de éxito destacado en transformación cloud</span><span data-lang="en">Featured cloud transformation success story</span></div>
-      </div>
+    <div class="perfil-right">
+      <ul class="capabilities-list">
+        <li>
+          <span class="cap-num">01</span>
+          <div class="cap-text">
+            <strong>Estrategia Cloud & Infraestructura</strong>
+            <span>Diseño y evolución de plataformas híbridas y multicloud alineadas a prioridades de negocio y regulación financiera.</span>
+          </div>
+        </li>
+        <li>
+          <span class="cap-num">02</span>
+          <div class="cap-text">
+            <strong>Resiliencia Operacional</strong>
+            <span>Continuidad de negocio, Disaster Recovery, backup y estabilidad para plataformas críticas en entornos regulados (CNBV, GDPR).</span>
+          </div>
+        </li>
+        <li>
+          <span class="cap-num">03</span>
+          <div class="cap-text">
+            <strong>Optimización de Costos</strong>
+            <span>Consolidación de recursos, eficiencia financiera y decisiones de arquitectura con retorno medible — $14.4M MXN en ahorros anuales.</span>
+          </div>
+        </li>
+        <li>
+          <span class="cap-num">04</span>
+          <div class="cap-text">
+            <strong>Liderazgo Técnico y de Equipos</strong>
+            <span>Equipos directos, contratos con proveedores Tier-1 y programas de transformación tecnológica de extremo a extremo.</span>
+          </div>
+        </li>
+        <li>
+          <span class="cap-num">05</span>
+          <div class="cap-text">
+            <strong>Seguridad & Cumplimiento</strong>
+            <span>Marcos de seguridad con Checkpoint, hardenings, ISO 27001 y gobernanza ITIL para entornos financieros regulados.</span>
+          </div>
+        </li>
+      </ul>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section id="perfil">
-    <div class="container">
-      <div class="section-head">
-        <div class="tag" data-lang="es">Executive Snapshot</div>
-        <div class="tag" data-lang="en">Executive Snapshot</div>
-        <h2 data-lang="es">Un perfil diseñado para roles de liderazgo tecnológico con impacto visible en negocio.</h2>
-        <h2 data-lang="en">A profile built for technology leadership roles with visible business impact.</h2>
-        <p data-lang="es">Mi experiencia se centra en convertir infraestructura, nube y operaciones TI en capacidades que reducen riesgo, mejoran eficiencia y aceleran la evolución tecnológica de la organización.</p>
-        <p data-lang="en">My experience focuses on turning infrastructure, cloud, and IT operations into capabilities that reduce risk, improve efficiency, and accelerate organizational technology evolution.</p>
-      </div>
-      <div class="grid highlights">
-        <div class="card"><div class="icon">01</div><h3 data-lang="es">Infrastructure Strategy</h3><h3 data-lang="en">Infrastructure Strategy</h3><p data-lang="es">Diseño y evolución de plataformas on-premise, híbridas y multicloud alineadas a prioridades de negocio.</p><p data-lang="en">Design and evolution of on-premise, hybrid, and multicloud platforms aligned with business priorities.</p></div>
-        <div class="card"><div class="icon">02</div><h3 data-lang="es">Operational Resilience</h3><h3 data-lang="en">Operational Resilience</h3><p data-lang="es">Continuidad operativa, Disaster Recovery, backup y estabilidad para plataformas críticas en entornos regulados.</p><p data-lang="en">Business continuity, Disaster Recovery, backup, and stability for critical platforms in regulated environments.</p></div>
-        <div class="card"><div class="icon">03</div><h3 data-lang="es">Cost & Capacity Optimization</h3><h3 data-lang="en">Cost & Capacity Optimization</h3><p data-lang="es">Consolidación de recursos, eficiencia de storage y decisiones de arquitectura con retorno medible.</p><p data-lang="en">Resource consolidation, storage efficiency, and architecture decisions with measurable returns.</p></div>
-        <div class="card"><div class="icon">04</div><h3 data-lang="es">Technology Leadership</h3><h3 data-lang="en">Technology Leadership</h3><p data-lang="es">Liderazgo de equipos especializados, proveedores estratégicos y programas de transformación tecnológica.</p><p data-lang="en">Leadership of specialized teams, strategic vendors, and technology transformation programs.</p></div>
-      </div>
+<!-- LOGROS / IMPACTO -->
+<section id="logros">
+  <div class="section-label">Impacto de negocio</div>
+  <h2 class="section-title">Resultados que conectan<br>infraestructura con el negocio</h2>
+  <p class="section-intro">
+    Tres transformaciones completas de datacenter en 10 años, siempre con impacto financiero demostrable y continuidad operativa garantizada.
+  </p>
+
+  <div class="logros-grid">
+    <div class="logro-item">
+      <div class="logro-number">89%</div>
+      <div class="logro-title">Reducción de costos</div>
+      <div class="logro-desc">De MXN $4.5M a $500K por mes en 10 años. Ahorros recurrentes de $14.4M MXN anuales.</div>
     </div>
-  </section>
-
-  <section id="impacto">
-    <div class="container">
-      <div class="section-head">
-        <div class="tag" data-lang="es">Impacto de Negocio</div>
-        <div class="tag" data-lang="en">Business Impact</div>
-        <h2 data-lang="es">Resultados que conectan infraestructura con eficiencia, velocidad y resiliencia.</h2>
-        <h2 data-lang="en">Results that connect infrastructure with efficiency, speed, and resilience.</h2>
-        <p data-lang="es">Más allá de operar plataformas, mi enfoque ha sido entregar beneficios medibles para la organización a través de decisiones técnicas con efecto financiero y operativo.</p>
-        <p data-lang="en">Beyond running platforms, my focus has been to deliver measurable business value through technical decisions with financial and operational impact.</p>
-      </div>
-
-      <div class="grid impact-grid">
-        <div class="card">
-          <h3 data-lang="es">Resultados clave</h3>
-          <h3 data-lang="en">Key outcomes</h3>
-          <p data-lang="es">He liderado migraciones críticas, optimización de infraestructura y fortalecimiento de continuidad operativa en entornos empresariales y financieros, combinando visión estratégica con ejecución técnica.</p>
-          <p data-lang="en">I have led critical migrations, infrastructure optimization, and business continuity improvements across enterprise and financial environments, combining strategic vision with technical execution.</p>
-          <div class="impact-metrics">
-            <div class="metric"><strong>MXN $1.2M</strong><span data-lang="es">Ahorro mensual estimado por optimización de storage y consolidación de hosts.</span><span data-lang="en">Estimated monthly savings through storage optimization and host consolidation.</span></div>
-            <div class="metric"><strong>350+</strong><span data-lang="es">Servidores considerados en migraciones estratégicas y modernización de plataformas.</span><span data-lang="en">Servers included in strategic migrations and platform modernization.</span></div>
-            <div class="metric"><strong>12 → 9</strong><span data-lang="es">Consolidación de hosts para mejorar eficiencia de capacidad y costos.</span><span data-lang="en">Host consolidation to improve capacity efficiency and costs.</span></div>
-            <div class="metric"><strong>248</strong><span data-lang="es">Sucursales soportadas en experiencia previa de operación nacional.</span><span data-lang="en">Branches supported in prior nationwide operations experience.</span></div>
-          </div>
-        </div>
-        <div class="card">
-          <h3 data-lang="es">Posicionamiento ejecutivo</h3>
-          <h3 data-lang="en">Executive positioning</h3>
-          <p data-lang="es">Mi perfil está orientado a posiciones donde infraestructura y cloud sean parte de una agenda estratégica: reducción de costo total, resiliencia operacional, aceleración de proyectos y modernización tecnológica alineada al negocio.</p>
-          <p data-lang="en">My profile is oriented toward roles where infrastructure and cloud are part of a strategic agenda: total cost reduction, operational resilience, project acceleration, and business-aligned technology modernization.</p>
-          <p style="margin-top:14px;" data-lang="es">Esto me permite aportar valor tanto en roles de ejecución senior como en posiciones de liderazgo con responsabilidad transversal sobre plataformas, operaciones y transformación.</p>
-          <p style="margin-top:14px;" data-lang="en">This enables me to contribute value both in senior execution roles and in leadership positions with cross-functional responsibility over platforms, operations, and transformation.</p>
-        </div>
-      </div>
+    <div class="logro-item">
+      <div class="logro-number">350+</div>
+      <div class="logro-title">Servidores migrados</div>
+      <div class="logro-desc">Tres migraciones completas con 99.9% de disponibilidad y cero impacto en continuidad de negocio.</div>
     </div>
-  </section>
-
-  <section id="logros">
-    <div class="container">
-      <div class="section-head">
-        <div class="tag" data-lang="es">Featured Achievement</div>
-        <div class="tag" data-lang="en">Featured Achievement</div>
-        <h2 data-lang="es">Caso de éxito con VMware como evidencia de transformación y resultados.</h2>
-        <h2 data-lang="en">VMware success story as evidence of transformation and results.</h2>
-        <p data-lang="es">Una referencia visible de cómo la estrategia de nube e infraestructura puede acelerar la ejecución y mejorar costos operativos.</p>
-        <p data-lang="en">A clear example of how cloud and infrastructure strategy can accelerate execution and improve operating costs.</p>
-      </div>
-
-      <div class="featured">
-        <div class="card">
-          <h3 data-lang="es">VMware / Provident Success Story</h3>
-          <h3 data-lang="en">VMware / Provident Success Story</h3>
-          <p class="quote" data-lang="es">“Apoya Provident su crecimiento en México con el cambio a la nube VMware”.</p>
-          <p class="quote" data-lang="en">“Provident supports its growth in Mexico by moving to VMware cloud.”</p>
-          <p style="margin-top:14px;" data-lang="es">El caso destaca la transición a VMware Cloud on AWS para reducir tiempos de implementación, disminuir riesgo de migración y optimizar costos operativos.</p>
-          <p style="margin-top:14px;" data-lang="en">The case highlights the transition to VMware Cloud on AWS to reduce implementation times, lower migration risk, and optimize operating costs.</p>
-          <div class="impact-metrics">
-            <div class="metric"><strong data-lang="es">18 meses → &lt;5 meses</strong><strong data-lang="en">18 months → &lt;5 months</strong><span data-lang="es">Reducción del tiempo de implementación.</span><span data-lang="en">Implementation timeline reduction.</span></div>
-            <div class="metric"><strong>23%</strong><span data-lang="es">Reducción del time-to-market.</span><span data-lang="en">Reduction in time-to-market.</span></div>
-            <div class="metric"><strong data-lang="es">60%+</strong><strong data-lang="en">60%+</strong><span data-lang="es">Ahorro mensual en costos operativos.</span><span data-lang="en">Monthly operating cost savings.</span></div>
-            <div class="metric"><strong>Cloud</strong><span data-lang="es">Transformación tecnológica con respaldo de caso documentado.</span><span data-lang="en">Technology transformation backed by a documented case.</span></div>
-          </div>
-        </div>
-        <div class="card">
-          <h3 data-lang="es">Recurso y contexto</h3>
-          <h3 data-lang="en">Resource and context</h3>
-          <p data-lang="es">En Provident participé en migraciones on-premise a VMware Cloud on AWS, VMC a VMC y transición posterior hacia AWS nativo, junto con iniciativas de backup, Disaster Recovery y fortalecimiento de seguridad.</p>
-          <p data-lang="en">At Provident, I participated in on-premise to VMware Cloud on AWS migrations, VMC-to-VMC transitions, and later evolution toward native AWS, together with backup, Disaster Recovery, and security strengthening initiatives.</p>
-          <div class="resource-box">
-            <a class="resource-link" href="Compartiendo%20mi%20crecimiento%20en%20Provident.pdf" target="_blank">↗ PDF VMware Case Study</a>
-            <a class="resource-link" href="CV_Jose_Abraham_Cruz_Carmona_Executive_Final_ES01.pdf" target="_blank">↗ CV / Resume PDF</a>
-          </div>
-        </div>
-      </div>
+    <div class="logro-item">
+      <div class="logro-number">5.5</div>
+      <div class="logro-title">Meses vs. 8 planeados</div>
+      <div class="logro-desc">Migración VMware Cloud on AWS entregada 31% antes del plazo. Proyecto reconocido por VMware globalmente.</div>
     </div>
-  </section>
-
-  <section id="experiencia">
-    <div class="container">
-      <div class="section-head">
-        <div class="tag" data-lang="es">Career Timeline</div>
-        <div class="tag" data-lang="en">Career Timeline</div>
-        <h2 data-lang="es">Trayectoria profesional con evolución hacia liderazgo estratégico.</h2>
-        <h2 data-lang="en">Professional track record evolving toward strategic leadership.</h2>
-        <p data-lang="es">Experiencia acumulada en operaciones, soporte, infraestructura y transformación tecnológica en sectores empresariales y financieros.</p>
-        <p data-lang="en">Experience built across operations, support, infrastructure, and technology transformation in enterprise and financial sectors.</p>
-      </div>
-      <div class="grid timeline">
-        <div class="card timeline-item">
-          <div class="time">2014 – 2025</div>
-          <div class="detail">
-            <h3>Provident México</h3>
-            <p data-lang="es">Liderazgo estratégico de infraestructura y operaciones TI en entorno financiero regulado.</p>
-            <p data-lang="en">Strategic leadership of infrastructure and IT operations in a regulated financial environment.</p>
-            <ul>
-              <li data-lang="es">Migraciones críticas a VMware Cloud on AWS y evolución a AWS nativo.</li>
-              <li data-lang="en">Critical migrations to VMware Cloud on AWS and evolution toward native AWS.</li>
-              <li data-lang="es">Ahorro estimado de MXN $1.2M mensuales por optimización y consolidación.</li>
-              <li data-lang="en">Estimated MXN $1.2M monthly savings through optimization and consolidation.</li>
-              <li data-lang="es">Continuidad operativa, backup, DRP y fortalecimiento de seguridad.</li>
-              <li data-lang="en">Operational continuity, backup, DRP, and security strengthening.</li>
-            </ul>
-          </div>
-        </div>
-        <div class="card timeline-item">
-          <div class="time">2012 – 2014</div>
-          <div class="detail">
-            <h3>Soluciones Infraserv</h3>
-            <p data-lang="es">Implementaciones de infraestructura tecnológica con enfoque técnico-comercial.</p>
-            <p data-lang="en">Technology infrastructure implementations with a technical-commercial approach.</p>
-            <ul>
-              <li data-lang="es">Ingresos acumulados superiores a USD $500,000 en un año.</li>
-              <li data-lang="en">Generated cumulative revenue exceeding USD $500,000 in one year.</li>
-            </ul>
-          </div>
-        </div>
-        <div class="card timeline-item">
-          <div class="time">2011 – 2012</div>
-          <div class="detail">
-            <h3>Consupago</h3>
-            <p data-lang="es">Gestión de procesos y políticas de TI, equipos de soporte y plataformas corporativas.</p>
-            <p data-lang="en">Management of IT processes and policies, support teams, and corporate platforms.</p>
-          </div>
-        </div>
-        <div class="card timeline-item">
-          <div class="time">2004 – 2010</div>
-          <div class="detail">
-            <h3>Montepío Luz Saviñón</h3>
-            <p data-lang="es">Liderazgo de equipos, implementación de ITIL y soporte nacional para 248 sucursales.</p>
-            <p data-lang="en">Team leadership, ITIL implementation, and nationwide support for 248 branches.</p>
-          </div>
-        </div>
-      </div>
+    <div class="logro-item">
+      <div class="logro-number">62%</div>
+      <div class="logro-title">Reducción en 1ª migración</div>
+      <div class="logro-desc">De MXN $4.5M a $1.7M/mes al pasar de On-Premise a VMware Cloud on AWS con 200+ servidores.</div>
     </div>
-  </section>
-
-  <section id="capacidades">
-    <div class="container">
-      <div class="section-head">
-        <div class="tag" data-lang="es">Core Leadership Capabilities</div>
-        <div class="tag" data-lang="en">Core Leadership Capabilities</div>
-        <h2 data-lang="es">Capacidades clave para posiciones de liderazgo en infraestructura y cloud.</h2>
-        <h2 data-lang="en">Core capabilities for infrastructure and cloud leadership roles.</h2>
-        <p data-lang="es">Agrupadas en bloques para comunicar con claridad el alcance ejecutivo de mi experiencia.</p>
-        <p data-lang="en">Grouped into clear blocks to communicate the executive scope of my experience.</p>
-      </div>
-      <div class="capability-grid">
-        <div class="capability"><h3>Cloud & Infrastructure Strategy</h3><p data-lang="es">Definición y evolución de plataformas híbridas y multicloud alineadas al negocio.</p><p data-lang="en">Definition and evolution of hybrid and multicloud platforms aligned with business needs.</p></div>
-        <div class="capability"><h3>Operational Resilience</h3><p data-lang="es">Continuidad operativa, Disaster Recovery, backup y estabilidad para servicios críticos.</p><p data-lang="en">Operational continuity, Disaster Recovery, backup, and stability for critical services.</p></div>
-        <div class="capability"><h3>Cost & Capacity Optimization</h3><p data-lang="es">Optimización de capacidad, consolidación y eficiencia financiera en infraestructura.</p><p data-lang="en">Capacity optimization, consolidation, and financial efficiency in infrastructure.</p></div>
-        <div class="capability"><h3>Technical Leadership</h3><p data-lang="es">Liderazgo de equipos técnicos, coordinación transversal y ejecución de iniciativas complejas.</p><p data-lang="en">Leadership of technical teams, cross-functional coordination, and complex initiative delivery.</p></div>
-        <div class="capability"><h3>Vendor & Budget Management</h3><p data-lang="es">Gestión de proveedores, licenciamiento, presupuesto y decisiones de inversión tecnológica.</p><p data-lang="en">Vendor management, licensing, budget ownership, and technology investment decisions.</p></div>
-      </div>
+    <div class="logro-item">
+      <div class="logro-number">23%</div>
+      <div class="logro-title">Reducción time-to-market</div>
+      <div class="logro-desc">Aceleración del ciclo de entrega tecnológica tras la transformación cloud, con cumplimiento GDPR incluido.</div>
     </div>
-  </section>
-
-  <section id="contacto">
-    <div class="container">
-      <div class="section-head">
-        <div class="tag" data-lang="es">Contacto</div>
-        <div class="tag" data-lang="en">Contact</div>
-        <h2 data-lang="es">Abierto a conversaciones con reclutadores y líderes de negocio.</h2>
-        <h2 data-lang="en">Open to conversations with recruiters and business leaders.</h2>
-        <p data-lang="es">Disponible para posiciones ejecutivas o de liderazgo en infraestructura, cloud, operaciones TI y transformación tecnológica.</p>
-        <p data-lang="en">Available for executive and leadership opportunities in infrastructure, cloud, IT operations, and technology transformation.</p>
-      </div>
-      <div class="contact-box">
-        <div class="card contact-list">
-          <h3><span data-lang="es">Información de contacto</span><span data-lang="en">Contact information</span></h3>
-          <p><strong style="color:#fff;" data-lang="es">Ubicación:</strong><strong style="color:#fff;" data-lang="en">Location:</strong> Puebla, México</p>
-          <p><strong style="color:#fff;" data-lang="es">Modalidad:</strong><strong style="color:#fff;" data-lang="en">Work model:</strong> <span data-lang="es">Remoto / Híbrido</span><span data-lang="en">Remote / Hybrid</span></p>
-          <p><strong style="color:#fff;">Tel:</strong> +52 222 188 8741</p>
-          <p><strong style="color:#fff;">Email:</strong> jacc42cruz@gmail.com</p>
-          <p><strong style="color:#fff;">LinkedIn:</strong> <a href="https://linkedin.com/in/jose-abraham-cruz-carmona-73277020" target="_blank" rel="noopener noreferrer">linkedin.com/in/jose-abraham-cruz-carmona-73277020</a></p>
-        </div>
-        <div class="card">
-          <h3><span data-lang="es">Resumen ejecutivo</span><span data-lang="en">Executive Statement</span></h3>
-          <p data-lang="es">He liderado iniciativas críticas de infraestructura y nube con impacto medible en costo, velocidad de implementación y resiliencia operativa. Busco contribuir en organizaciones que valoren la ejecución estratégica, el liderazgo técnico y la transformación tecnológica alineada al negocio.</p>
-          <p data-lang="en">I have led critical infrastructure and cloud initiatives with measurable impact on cost, implementation speed, and operational resilience. I am looking to contribute to organizations that value strategic execution, technical leadership, and business-aligned technology transformation.</p>
-          <div class="cta-row" style="margin-top:18px;">
-            <a class="btn btn-primary" href="mailto:jacc42cruz@gmail.com">Email</a>
-            <a class="btn btn-secondary" href="https://linkedin.com/in/jose-abraham-cruz-carmona-73277020" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          </div>
-        </div>
-      </div>
+    <div class="logro-item">
+      <div class="logro-number">$50M+</div>
+      <div class="logro-title">MXN presupuesto gestionado</div>
+      <div class="logro-desc">Gestión anual con contratos Tier-1 ante AWS, VMware y Microsoft. Sector financiero regulado CNBV.</div>
     </div>
-  </section>
-
-  <div class="footer">
-    <div class="container">© 2026 José Abraham Cruz Carmona · Executive professional website</div>
   </div>
 
-  <script>
-    function setLanguage(lang) {
-      document.body.classList.toggle('lang-en', lang === 'en');
-      document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
-      document.querySelector('.lang-btn.' + lang).classList.add('active');
-      localStorage.setItem('siteLanguage', lang);
-      document.documentElement.lang = lang;
-    }
-    const savedLanguage = localStorage.getItem('siteLanguage') || 'es';
-    setLanguage(savedLanguage);
-  </script>
+  <div class="vmware-banner">
+    <div>
+      <div class="vmware-label">Caso de éxito documentado · VMware</div>
+      <div class="vmware-text">"Apoya Provident su crecimiento en México con el cambio a la nube VMware"</div>
+      <div class="vmware-sub">
+        Proyecto reconocido por VMware como caso oficial y adoptado como modelo de replicación para subsidiarias del grupo IPF en Europa. Migración de 200+ servidores en 12 nodos Stretched Cluster con 99.99% de disponibilidad.
+      </div>
+    </div>
+    <div class="vmware-links">
+      <a href="https://jacc42-tech.github.io/RepositoryPresent/Compartiendo%20mi%20crecimiento%20en%20Provident.pdf" target="_blank" class="link-pill">↗ PDF Caso VMware</a>
+      <a href="https://jacc42-tech.github.io/RepositoryPresent/CV_Jose_Abraham_Cruz_Carmona_Executive_Final_ES01.pdf" target="_blank" class="link-pill">↗ CV Ejecutivo PDF</a>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCIA -->
+<section id="experiencia">
+  <div class="section-label">Trayectoria profesional</div>
+  <h2 class="section-title">20 años evolucionando<br>hacia liderazgo estratégico</h2>
+  <p class="section-intro">
+    Desde operaciones nacionales hasta transformaciones cloud reconocidas globalmente, siempre en entornos financieros regulados con presupuestos y equipos a cargo.
+  </p>
+
+  <div class="timeline">
+
+    <div class="timeline-item">
+      <div class="timeline-period">Jul 2014 – Ago 2025 · 11 años</div>
+      <div class="timeline-company">Provident México</div>
+      <div class="timeline-role">IT Infrastructure & Operations Leader → Senior Cloud & Datacenter Engineer → Coordinador Sr. Infraestructura & Seguridad</div>
+      <div class="timeline-desc">
+        Liderazgo senior de infraestructura TI en entorno financiero regulado con operaciones multinacionales en LATAM. Orquesté 3 transformaciones completas de centro de datos en 10 años — On-Premise → VMware Cloud on AWS → AWS Nativo — migrando 350+ servidores con 99.9% de disponibilidad. Reduje costos de MXN $4.5M a $500K/mes (89%) y generé ahorros de MXN $14.4M anuales. Gestioné presupuesto anual de $50M+, estrategia multicloud híbrida (AWS · Azure · GCP), DR con Veeam, seguridad para 2,000+ endpoints y equipo de 5 reportes directos con contratos Tier-1 ante AWS, VMware y Microsoft.
+      </div>
+      <div class="timeline-highlights">
+        <span class="highlight-chip">VMware Customer Success Story</span>
+        <span class="highlight-chip">89% reducción de costos</span>
+        <span class="highlight-chip">350+ servidores migrados</span>
+        <span class="highlight-chip">Presupuesto $50M+ MXN</span>
+        <span class="highlight-chip">AWS · VMware · Azure · GCP</span>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-period">Feb 2012 – Ago 2014</div>
+      <div class="timeline-company">Soluciones InfraServ</div>
+      <div class="timeline-role">Solutions Leader</div>
+      <div class="timeline-desc">
+        Generé USD $840K en ingresos en el primer año gestionando cuentas corporativas de alto perfil: Cinemex, Sanofi, Consubanco y Havas Worldwide. Lideré proyectos de infraestructura end-to-end — desde diseño hasta entrega — cubriendo redes corporativas (Cisco/Aruba), seguridad perimetral (Fortinet), centros de datos (APC/Rittal) y sistemas de vigilancia y control de acceso (Bosch), dentro de plazos y presupuestos acordados.
+      </div>
+      <div class="timeline-highlights">
+        <span class="highlight-chip">USD $840K en ingresos primer año</span>
+        <span class="highlight-chip">Cisco · Fortinet · APC</span>
+        <span class="highlight-chip">Gestión técnico-comercial</span>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-period">Feb 2011 – Feb 2012</div>
+      <div class="timeline-company">Consubanco S.A.</div>
+      <div class="timeline-role">IT Services Manager</div>
+      <div class="timeline-desc">
+        Dirigí el área de soporte TI de una institución bancaria — 5 operadores Helpdesk y 4 técnicos presenciales — atendiendo 2 corporativos y 112 sucursales bajo ITIL v3, elevando el cumplimiento de SLA del 60% al 95% y reduciendo tickets incumplidos a 1-2 por mes. Administré la operación tecnológica completa: SAP R3, telefonía IP corporativa (Toshiba/Avaya), seguridad física (CCTV, control de acceso, detección de incendio) y gestión de identidades en Active Directory.
+      </div>
+      <div class="timeline-highlights">
+        <span class="highlight-chip">SLA: 60% → 95%</span>
+        <span class="highlight-chip">112 sucursales</span>
+        <span class="highlight-chip">SAP R3 · ITIL v3</span>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-period">Ene 2005 – Ene 2011 · 6 años</div>
+      <div class="timeline-company">Montepío Luz Saviñón I.A.P.</div>
+      <div class="timeline-role">IT Support & NOC Manager</div>
+      <div class="timeline-desc">
+        Primer rol de liderazgo en institución financiera nacional — responsable de soporte TI, NOC y seguridad física para 248 sucursales durante 6 años. Supervisé remotamente 20+ ingenieros de TI y seguridad física. Lideré la puesta en marcha de 150+ aperturas de sucursales y la modernización tecnológica nacional: migración WAN a VPN en 23 puntos, infraestructura LAN en 144 sucursales, impresión centralizada en 114 ubicaciones e implementación del NOC con WhatsUp Gold.
+      </div>
+      <div class="timeline-highlights">
+        <span class="highlight-chip">248 sucursales</span>
+        <span class="highlight-chip">20+ ingenieros remotos</span>
+        <span class="highlight-chip">150+ aperturas de sucursales</span>
+        <span class="highlight-chip">NOC · VPN · WAN</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto">
+  <div class="section-label" style="position:relative;z-index:1;">Contacto</div>
+  <h2 class="section-title" style="position:relative;z-index:1;">Hablemos de tu<br>próximo desafío</h2>
+  <p class="contact-lead">
+    Disponible para posiciones de Gerente o Director de Infraestructura TI, Head of Cloud o roles similares en modalidad remota o híbrida desde Puebla, México.
+  </p>
+
+  <div class="contact-grid">
+    <div class="contact-item">
+      <div class="contact-item-label">Ubicación</div>
+      <div class="contact-item-value">Puebla, México</div>
+    </div>
+    <div class="contact-item">
+      <div class="contact-item-label">Modalidad</div>
+      <div class="contact-item-value">Remoto / Híbrido</div>
+    </div>
+    <div class="contact-item">
+      <div class="contact-item-label">Teléfono</div>
+      <div class="contact-item-value"><a href="tel:+522221888741">+52 222 188 8741</a></div>
+    </div>
+    <div class="contact-item">
+      <div class="contact-item-label">Email</div>
+      <div class="contact-item-value"><a href="mailto:jacc42cruz@gmail.com">jacc42cruz@gmail.com</a></div>
+    </div>
+    <div class="contact-item">
+      <div class="contact-item-label">LinkedIn</div>
+      <div class="contact-item-value"><a href="https://linkedin.com/in/jose-abraham-cruz-carmona-73277020" target="_blank">Ver perfil completo</a></div>
+    </div>
+  </div>
+
+  <div class="contact-cta">
+    <a href="mailto:jacc42cruz@gmail.com" class="btn-primary">Enviar mensaje</a>
+    <a href="https://jacc42-tech.github.io/RepositoryPresent/CV_Jose_Abraham_Cruz_Carmona_Executive_Final_ES01.pdf" target="_blank" class="btn-outline">Descargar CV PDF</a>
+    <a href="https://jacc42-tech.github.io/RepositoryPresent/Compartiendo%20mi%20crecimiento%20en%20Provident.pdf" target="_blank" class="btn-outline">Caso VMware PDF</a>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 José Abraham Cruz Carmona · Gerente de Infraestructura TI & Cloud</p>
+  <span class="footer-cert">ITIL v3 · VMware Cloud on AWS Certified · Puebla, México</span>
+</footer>
+
 </body>
 </html>
-
