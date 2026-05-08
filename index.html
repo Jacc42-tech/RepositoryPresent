@@ -113,7 +113,7 @@ nav.scrolled { box-shadow: 0 4px 32px rgba(0,0,0,.35); }
   pointer-events:none;
 }
 .hero-left {
-  padding: 150px 3rem 80px 5rem;
+  padding: 90px 3rem 60px 5rem;
   display:flex; flex-direction:column; justify-content:center;
   position:relative; z-index:1;
 }
@@ -211,7 +211,7 @@ nav.scrolled { box-shadow: 0 4px 32px rgba(0,0,0,.35); }
 .hero-right {
   display:flex; align-items:center; justify-content:center;
   position:relative; z-index:1;
-  padding:150px 2rem 80px 1rem;
+  padding:90px 2rem 60px 1rem;
 }
 .metrics-grid {
   display:grid; grid-template-columns:1fr 1fr; gap:1.25rem;
@@ -548,57 +548,57 @@ footer p, .footer-cert {
 
 /* HERO PHOTO */
 .hero-photo-col {
-  display:flex; align-items:flex-end; justify-content:center;
+  display:flex; align-items:center; justify-content:center;
   position:relative; z-index:1;
-  padding:80px 0 0;
+  padding:72px 0 0;
 }
 .hero-photo-wrap {
-  position:relative; width:220px;
+  position:relative; width:230px;
   animation: fadeUp .7s .35s ease both;
 }
 .hero-photo-frame {
-  width:220px; height:300px;
+  width:230px; height:340px;
   position:relative; overflow:hidden;
-  border-radius:4px 4px 0 0;
+  border-radius:4px;
 }
 .hero-photo-frame::before {
   content:''; position:absolute;
   top:0; left:0; right:0; bottom:0;
   background: linear-gradient(
     to bottom,
-    transparent 50%,
-    rgba(13,27,42,.6) 85%,
-    rgba(13,27,42,1) 100%
+    transparent 55%,
+    rgba(13,27,42,.5) 80%,
+    rgba(13,27,42,.92) 100%
   );
   z-index:1;
 }
 .hero-photo-frame::after {
   content:''; position:absolute;
   top:0; left:0; right:0; bottom:0;
-  border:1px solid rgba(201,168,76,.3);
-  border-radius:4px 4px 0 0;
+  border:1px solid rgba(201,168,76,.35);
+  border-radius:4px;
   z-index:2; pointer-events:none;
 }
 .hero-photo-frame img {
   width:100%; height:100%;
-  object-fit:cover; object-position:center top;
+  object-fit:cover; object-position:center 8%;
   display:block;
 }
 .hero-photo-accent {
   position:absolute;
-  bottom:-1px; left:-12px; right:-12px;
+  bottom:-1px; left:-14px; right:-14px;
   height:3px;
   background: linear-gradient(90deg, transparent, var(--gold), transparent);
 }
 .hero-photo-corner {
   position:absolute;
-  width:18px; height:18px;
+  width:20px; height:20px;
   border-color: var(--gold);
   border-style: solid;
-  opacity:.7;
+  opacity:.75;
 }
-.hero-photo-corner.tl { top:-8px; left:-8px; border-width:2px 0 0 2px; }
-.hero-photo-corner.tr { top:-8px; right:-8px; border-width:2px 2px 0 0; }
+.hero-photo-corner.tl { top:-9px; left:-9px; border-width:2px 0 0 2px; }
+.hero-photo-corner.tr { top:-9px; right:-9px; border-width:2px 2px 0 0; }
 </style>
 </head>
 <body>
